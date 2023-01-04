@@ -1,0 +1,54 @@
+<div class="row">
+    <form [formGroup]="attendanceForm" (ngSubmit)="onSubmit(student)">
+      <div class="col-12">
+        <div class="card card-body">
+            <h4 class="card-header">Asistencia</h4>
+            <br>
+            <h5 class="card-subtitle">Aqui se puede marcar la asistencia del estudiante</h5>
+            <div class="d-flex mb-3 mt-3">
+            </div>
+            <div class="table-responsive table-bordered">
+                <table class="table table-stripped mb-0 no-wrap alling-middle">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Presente?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of studentsList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                            <td class="text-center">
+                                {{student.name}}
+                            </td>
+                            <td>
+                                {{student.lastName}}
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" name="date" placeholder="Fecha" formControlName="date" size="5">
+                                {{student.date}}
+                            </td>
+                            <td>
+                              <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" formControlName="attendance">
+                              </div>
+                            </td>
+                            <td>
+                              <div class="d-flex allign-items-center">
+                                  <div class="ms-3">
+                                      <button class="btn btn-outline-success" (click)="getStudentId(student)">Asistencia</button>
+                                  </div>
+                              </div>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+            </div>
+            <h1>TOTAL ESTUDIANTES: </h1>
+            <input type="text" class="form-control" name="total" placeholder="total" formControlName="total" size="1%">
+        </div>
+    </div>
+    </form>
+  </div>

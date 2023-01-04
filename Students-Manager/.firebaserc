@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "students-manager-3d4a9": {
+      "hosting": {
+        "Students-Manager": [
+          "students-manager-3d4a9"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "students-manager-3d4a9"
+  }
+}

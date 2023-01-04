@@ -1,0 +1,89 @@
+<div class="row">
+  <form [formGroup]="gradeStudentForm" (ngSubmit)="onSubmit(student)">
+    <div class="col-12">
+      <div class="card card-body">
+          <h4 class="card-header">Calificacion estudiantes</h4>
+          <br>
+          <h5 class="card-subtitle">Aqui se califica a los estudiantes</h5>
+          <div class="d-flex mb-3 mt-3">
+          </div>
+          <div class="table-responsive table-bordered">
+              <table class="table table-stripped mb-0 no-wrap alling-middle">
+                  <thead>
+                      <tr>
+                          <th class="text-center" scope="col">Nombre</th>
+                          <th scope="col">Apellido</th>
+                          <th scope="col">Materia 1</th>
+                          <th scope="col">Materia 2</th>
+                          <th scope="col">Materia 3</th>
+                          <th scope="col">Materia 4</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let student of studentsList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                          <td class="text-center">
+                              {{student.name}}
+                          </td>
+                          <td>
+                              {{student.lastName}}
+                          </td>
+                          <td>
+                            <div class="d-flex allign-items-center">
+                              <div class="ms-3">
+                                  <p class="font-medium mb-0">{{student.subject1}}</p>
+                                  <small>
+                                    <input type="text" size="1" formControlName="grade1">
+                                    {{student.subject1.grade}}
+                                  </small>
+                              </div>
+                          </div>
+                          </td>
+                          <td>
+                              <div class="d-flex allign-items-center">
+                                  <div class="ms-3">
+                                    <p class="font-medium mb-0">{{student.subject2}}</p>
+                                    <small>
+                                      <input type="text" size="1" formControlName="grade2">
+                                      {{student.grade2.grade}}
+                                    </small>
+                                  </div>
+                              </div>
+                          </td>
+                          <td>
+                              <div class="d-flex allign-items-center">
+                                  <div class="ms-3">
+                                    <p class="font-medium mb-0">{{student.subject3}}</p>
+                                    <small>
+                                      <input type="text" size="1" formControlName="grade3">
+                                      {{student.grade3.grade}}
+                                    </small>
+                                  </div>
+                              </div>
+                          </td>
+                          <td>
+                              <div class="d-flex allign-items-center">
+                                  <div class="ms-3">
+                                    <p class="font-medium mb-0">{{student.subject4}}</p>
+                                    <small>
+                                      <input type="text" size="1" formControlName="grade4">
+                                      {{student.grade4.grade}}
+                                    </small>
+                                  </div>
+                              </div>
+                          </td>
+                          <td>
+                            <div class="d-flex allign-items-center">
+                                <div class="ms-3">
+                                    <button class="btn btn-outline-success" (click)="getStudentId(student)">Calificar</button>
+                                </div>
+                            </div>
+                        </td>
+                      </tr>
+                  </tbody>
+              </table>
+              <br>
+          </div>
+      </div>
+  </div>
+  </form>
+</div>
